@@ -1,0 +1,27 @@
+
+
+
+    
+    
+    
+    
+# Créer le tube anonyme (pipe)
+    # Dans le processus enfant, fermer le descripteur de lecture
+    # Dans le processus parent, fermer le descripteur d'écriture
+    # Écrire des données dans le tube anonyme
+else:
+    # Fermer le descripteur d'écriture
+    # Fermer le descripteur de lecture
+if pid == 0:
+import os
+    # Lire des données depuis le tube anonyme
+    message = "Hello, parent process!"
+    message = os.read(rfd, 100)
+    os.close(rfd)
+    os.close(rfd)
+    os.close(wfd)
+    os.close(wfd)
+    os.write(wfd, message.encode('utf-8'))
+pid = os.fork()
+    print("Message reçu du processus enfant: ", message.decode('utf-8'))
+rfd, wfd = os.pipe()
